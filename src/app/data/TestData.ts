@@ -28,5 +28,29 @@ export class TestData {
 			category: TestData.categories[4],
 			date: new Date('2019-04-10')
 		},
+		{
+			id: 2,
+			title: 'Выучить английский',
+			priority: TestData.properties[2],
+			completed: false,
+			category: TestData.categories[3],
+			date: new Date('2019-04-10')
+		},
+		{
+			id: 3,
+			title: 'Купить подарок сыну',
+			priority: TestData.properties[2],
+			completed: false,
+			category: TestData.categories[2],
+			date: new Date('2019-04-10')
+		},
+		{
+			id: 4,
+			title: 'Доделать проект',
+			priority: TestData.properties[2],
+			completed: false,
+			category: TestData.categories[1],
+			date: new Date('2019-04-10')
+		},
 	]
 }
