@@ -3,23 +3,26 @@ import { Injectable } from '@angular/core';
 import { Category } from '../model/Category';
 import { TestData } from '../data/TestData';
 import { Task } from '../model/Task';
+import { Subject } from "rxjs"
 
 @Injectable({
 	providedIn: 'root' // доступ к данному классу из корня
 })
 
 export class DataHandlerService {
-	constructor() {}
+	taskSubject = new Subject<Task[]>()
+	constructor() {
+
+	}
 	getCategories(): Category[] {
 		return TestData.categories;
 	}
-	getTasks():Task[] {
-		return TestData.tasks
+	fillTasks() {
+		this.taskSubject.next(TestData.tasks)
 	}
-	getTasksByCategory(category:Category):Task[] {
+	fillTasksByCategory(category:Category) {
 		// будут отфильтрованны все задачи у которых категория равна переданной категории
 		const tasks = TestData.tasks.filter(task => task.category === category);
-		console.log(tasks)
-		return tasks;
+		this.taskSubject.next(tasks)
 	}
-}
+} 

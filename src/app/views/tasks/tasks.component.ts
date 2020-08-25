@@ -16,7 +16,7 @@ export class TasksComponent implements OnInit {
 	}
 
 	ngOnInit() { // вызывается всегда после создания компонента
-		this.tasks = this.dataHandler.getTasks(); // через сервис получаем данные из базы
+		this.dataHandler.taskSubject.subscribe(tasks => this.tasks = tasks) // через сервис получаем данные из базы
 	}
 
 }
